@@ -1,0 +1,19 @@
+package com.example.rahul03;
+
+import org.springframework.context.annotation.Configuration;
+
+//Configuration file where we Describe what to perform
+@Configuration
+public class DrawingConfig {
+	//Responsible to create circle Object
+	public Circle getCircle() {
+		return new Circle();
+	}
+	
+	//Responsible to create Rectangle Object
+	public Rectangle getRectangle() {
+		return new Rectangle();
+	}
+	
+
+}

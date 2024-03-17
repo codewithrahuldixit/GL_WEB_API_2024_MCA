@@ -1,0 +1,42 @@
+package com.example.rahul04;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+
+
+public class GlLvc01Application {
+	//Responsible to create circle Object
+		@Bean
+		@Primary
+		public Circle getCircle() {
+			return new Circle();
+		}
+		
+		//Responsible to create Rectangle Object
+		@Bean
+		public Rectangle getRectangle() {
+			return new Rectangle();
+		}
+		
+		@Bean
+		public Drawing getDrawing(Shape shape) {
+			//02 : Inject the Dependent Object By Using Parameters
+			// If Multiple Dependent Beans are available use @Primary
+			return new Drawing(shape);
+			
+			//01:Injecting Dependent Object By Calling Member Method getRectangle
+			//return new Drawing(getRectangle());
+			
+		}
+
+	public static void main(String[] args) {
+		
+		var context = new AnnotationConfigApplicationContext(GlLvc01Application.class);
+		var v = context.getBean(Drawing.class);
+		v.draw();
+	}
+
+}

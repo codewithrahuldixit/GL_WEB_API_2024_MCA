@@ -1,0 +1,9 @@
+package com.example.rahul02;
+
+import org.springframework.context.annotation.Configuration;
+
+//Configuration file where we Describe what to perform
+@Configuration
+public class DrawingConfig {
+
+}

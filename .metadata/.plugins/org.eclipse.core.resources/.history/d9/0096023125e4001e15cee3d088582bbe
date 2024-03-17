@@ -1,0 +1,10 @@
+package com.example.rahul01;
+
+public class Drawing {
+	Shape shape;
+	
+	public void draw() {
+		circle.show();
+	}
+
+}
