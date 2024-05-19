@@ -14,12 +14,11 @@ public class Drawing {
 	private Shape shape;
 	// Dependencies are set by Creating the bean using its constructor
 	//it is By Default
-	/*
+	
 	public Drawing(Shape shape) {
 		super();
 		this.shape = shape;
 	}
-*/
 	
 	
 	public void draw() {
@@ -27,7 +26,7 @@ public class Drawing {
 	}
 
 
-	@Autowired
+	//@Autowired
 	public void setShape(Shape shape) {
 		System.out.println("Setter is Executed");
 		this.shape = shape;

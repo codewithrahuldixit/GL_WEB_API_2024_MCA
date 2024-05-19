@@ -12,8 +12,19 @@ public class GlLvc01Application {
 
 		var context = new AnnotationConfigApplicationContext(GlLvc01Application.class);
 		System.out.println("Before The Drawing Object Used");
-		var v = context.getBean(Drawing.class);
-		v.draw();
+		
+		//We Not Used a Objects Circle Or Rectangle
+		//var v = context.getBean(Drawing.class);
+		//v.draw();
+		System.out.println(context.getBean(Circle.class));
+	/*	System.out.println(context.getBean(Circle.class));
+		System.out.println(context.getBean(Circle.class));
+		System.out.println(context.getBean(Circle.class));
+		System.out.println(context.getBean(Rectangle.class));
+		System.out.println(context.getBean(Rectangle.class));
+		System.out.println(context.getBean(Rectangle.class));
+		System.out.println(context.getBean(Rectangle.class));
+		System.out.println(context.getBean(Rectangle.class));*/
 	}
 
 }

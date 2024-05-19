@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Person ADD|Update Page</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	crossorigin="anonymous">	
+</head>
+<body>
+	
+	<div class="container" align="center">
+	<h1>Student Information To be Updated As Follows</h1>
+	<form action="#" th:action="@{/save}" th:object="${student}" method="post">
+		<input type="hidden" th:field="*{id}">
+		Student Name  : <input type="text" th:field="*{name}" class="form-control mb=4 col=4" placeholder="Enter Student Name">
+		Student Email : <input type="text" th:field="*{email}" class="form-control mb=4 col=4" placeholder="Enter Student Email">
+		<br>
+		<br>
+		<button type="submit" class="btn btn-info col=2">Add|Update</button>
+	</form>
+	<br>
+		<br>
+		
+	<a th:href="@{/}" class="btn btn-primary">Go Back To The List</a>
+	</div>
+	
+</body>
+
+</html>
