@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 
 @Entity
 public class CurrencyExchange {
-
 	@Id
 	private int id;
 	@Column(name = "currency_from")
