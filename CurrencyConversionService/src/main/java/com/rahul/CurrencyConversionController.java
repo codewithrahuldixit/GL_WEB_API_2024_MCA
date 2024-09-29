@@ -17,27 +17,32 @@ public class CurrencyConversionController {
 
 	@GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversion calculateCurrencyConversion(@PathVariable String from, @PathVariable String to,
-			@PathVariable String quantity) {
-		long q = Long.parseLong(quantity);
+			@PathVariable long quantity) {
+		
 		HashMap<String, String> uriVariables = new HashMap<>();
 		uriVariables.put("from", from);
 		uriVariables.put("to", to);
 		ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity(
 				"http://localhost:8000/currency-exchange/from/{from}/to/{to}", CurrencyConversion.class, uriVariables);
 		CurrencyConversion currencyConversion = responseEntity.getBody();
-		long totalamount = q * currencyConversion.getConversionMultiple();
-		return new CurrencyConversion(currencyConversion.getId(), from, to, q,
-				currencyConversion.getConversionMultiple(), totalamount);
+		long totalamount = quantity * currencyConversion.getConversionMultiple();
+		currencyConversion.setTotalCalculatedAmount(totalamount);
+		currencyConversion.setQuantity(quantity);
+		currencyConversion.setEnvirnoment(currencyConversion.getEnvirnoment()+" Rest Template");
+		return currencyConversion;
+		//return new CurrencyConversion(currencyConversion.getId(), from, to, q,
+			//	currencyConversion.getConversionMultiple(), totalamount);
 	}
 
 	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversion calculateCurrencyConversionfeign(@PathVariable String from, @PathVariable String to,
-			@PathVariable String quantity) {
-		long q = Long.parseLong(quantity);
-
+			@PathVariable long quantity) {
 		CurrencyConversion currencyConversion = proxy.retrieveExchangeValue(from, to);
-		long totalamount = q * currencyConversion.getConversionMultiple();
-		return new CurrencyConversion(currencyConversion.getId(), from, to, q,
-				currencyConversion.getConversionMultiple(), totalamount);
+		long totalamount = quantity * currencyConversion.getConversionMultiple();
+		currencyConversion.setTotalCalculatedAmount(totalamount);
+		currencyConversion.setQuantity(quantity);
+		currencyConversion.setEnvirnoment(currencyConversion.getEnvirnoment()+" Feign Client");
+		return currencyConversion;
+	
 	}
 }

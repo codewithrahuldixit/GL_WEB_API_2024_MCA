@@ -1,18 +1,29 @@
 package com.rahul;
 
 public class CurrencyConversion {
+	
 	private int id;
 	private String from;
 	private String to;
 	private long quantity;
 	private long conversionMultiple;
 	private long totalCalculatedAmount;
+	private String envirnoment;
+
+	public String getEnvirnoment() {
+		return envirnoment;
+	}
+
+	public void setEnvirnoment(String envirnoment) {
+		this.envirnoment = envirnoment;
+	}
+
 	public CurrencyConversion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CurrencyConversion(int id, String from, String to, long quantity, long conversionMultiple,
-			long totalCalculatedAmount) {
+		public CurrencyConversion(int id, String from, String to, long quantity, long conversionMultiple,
+			long totalCalculatedAmount, String envirnoment) {
 		super();
 		this.id = id;
 		this.from = from;
@@ -20,8 +31,9 @@ public class CurrencyConversion {
 		this.quantity = quantity;
 		this.conversionMultiple = conversionMultiple;
 		this.totalCalculatedAmount = totalCalculatedAmount;
+		this.envirnoment = envirnoment;
 	}
-	public int getId() {
+			public int getId() {
 		return id;
 	}
 	public void setId(int id) {

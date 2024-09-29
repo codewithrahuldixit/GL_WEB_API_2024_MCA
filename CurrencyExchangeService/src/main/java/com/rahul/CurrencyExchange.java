@@ -14,18 +14,30 @@ public class CurrencyExchange {
 	private String to;
 
 	private long conversionMultiple;
+	private String envirnoment;
 
-	public CurrencyExchange() {
-		
+	public String getEnvirnoment() {
+		return envirnoment;
+	}
+
+	public void setEnvirnoment(String envirnoment) {
+		this.envirnoment = envirnoment;
 	}
 	
-	public CurrencyExchange(int id, String from, String to, long conversionMultiple) {
+
+	public CurrencyExchange(int id, String from, String to, long conversionMultiple, String envirnoment) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
 		this.conversionMultiple = conversionMultiple;
+		this.envirnoment = envirnoment;
 	}
+
+	public CurrencyExchange() {
+		
+	}
+	
 
 	public int getId() {
 		return id;
@@ -62,7 +74,8 @@ public class CurrencyExchange {
 	@Override
 	public String toString() {
 		return "CurrencyExchange [id=" + id + ", from=" + from + ", to=" + to + ", conversionMultiple="
-				+ conversionMultiple + "]";
+				+ conversionMultiple + ", envirnoment=" + envirnoment + "]";
 	}
 
+	
 }
