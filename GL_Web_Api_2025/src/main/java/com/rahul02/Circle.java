@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 @Component
 @Primary
 @Lazy
@@ -19,6 +22,16 @@ public class Circle implements Shape {
 		// TODO Auto-generated constructor stub
 	}
 
+	// This Method is Executed Just After the creation of the object
+	@PostConstruct
+	public void initialize(){
+		System.out.println("Initialization of the method is Done");
+	}
+	//This Execute just before the Object Get Deallocated 
+	@PreDestroy
+	public void cleanUp() {
+		System.out.println("Clean Up Done ");
+	}
 	public Circle(int radius) {
 		super();
 		this.radius = radius;
